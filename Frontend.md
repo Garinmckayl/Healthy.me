@@ -1,4 +1,4 @@
-# Backend 
+# Frontend 
 
 Building the User Interface of healthyme app
 
