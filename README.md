@@ -28,7 +28,7 @@ We choose wit.ai platform because
 
 Here is the app working in action
 
- ![Working app demo](image.jpg)
+ ![Working app demo](images/app.gif)
 
  
 
@@ -65,7 +65,8 @@ npm start
 you should be able to see the basic react page at [http://localhost:3000](http://localhost:3000 )
 
 
- 
+  ![Working app demo](images/react_default.png)
+
 
 
 # 3. Building the Backend
