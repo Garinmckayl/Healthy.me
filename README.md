@@ -2,42 +2,49 @@
 ## Build a Smart health tracking app using Reactjs and Wit.it
 
 ### Inspiration
-Health is the most important and valuable asset we have when living in this world, yet we take it for granted. And It is often difficult for us to realize it’s value until we loss it, So thought building an app to track our health is very important We called the app healthy.me. The app will help us track our progress toward healthy life, we can track calories taken and workout time done in a day. We will achieve this using react(a javascript framework for building user interfaces) additionally our app will be Artificial intelligence powered, users can interact with the app using voice commands, and we will use wit.ai platform. To interact with the wit.ai api we will use nodejs.
+Health is the most important and valuable asset we have when living in this world, yet we take it for granted. And It is often difficult for us to realize it’s value until we loss it, So thought building an app to track our health is very important We called the app healthy.me.
+
+The app will help us track our progress toward healthy life, we can track calories taken and workout time done in a day. We will achieve this using [reactjs](https://reactjs.org/docs/getting-started.html) (A javascript framework for building user interfaces) additionally our app will be Artificial intelligence powered, users can interact with the app using voice commands, and we will use wit.ai platform. To interact with the wit.ai api we will use nodejs.
 
 ### The tech stack
 These are the technologies use to build the app.
-* React.js
-* Wit.ai
-* Node.js
-* Express.js
-* Sqlite
+* [react.js](https://reactjs.org/docs/getting-started.html)
+* [Wit.ai](https://wit.ai/)
+* [nodejs](https://nodejs.org/en/)
+* [Express.js](https://github.com/expressjs/express)
+* Sqlite(simple document based database)
 
 We choose react because it is going to make our app more manageable in the future hence making adding features to the app easy not to mention it is very fun to write.
 We choose wit.ai platform because
 1.It is easy to use
 1.It is free
 
-**Building the app**
+# **Building the app**
 
-How will it work?
-1, Open browser and go to the url of the app
-2, Use the audio or text input to enter your progress. Eg: “Burned 100 calories today”
-3, App will understand your intent and track your progress 
+### How will it work?
+1. Open browser and go to the url of the app
+2. Use the audio or text input to enter your progress. Eg: “Burned 100 calories today”
+3. App will understand your intent and track your progress 
 
 Here is the app working in action
+
+ ![Working app demo](image.jpg)
 
  
 
 Application Logic flow figure(mind map)
  
+ ![Application Logic](image.jpg)
+
+ 
 
 # Prerequisites 
-1, Node js
-2, reactjs
-3, wit.ai account
+1. Node js
+2. reactjs
+3. wit.ai account
 Now let’s see how are we going to approach building the app 
 
-1, Installation and set up
+# 1. Installation and set up
 
 Installing node js
 Go to nodejs.org and download the exe , and follow the instructions
@@ -46,21 +53,22 @@ Go to wit.ai website and create free account
 Create basic react project
 
 
-2, Building the frontend
+# 2. Building the frontend
 Project setup
-We are going to use create-react-app to scaffold our basic react app, it will give us folder structure with everything setup.
+We are going to use [create-react-app](https://create-react-app.dev/docs/getting-started/) to scaffold our basic react app, it will give us folder structure with everything setup.
 Run the following commands.
 ```
 npx create-react-app healthyme
 cd healthyme
 npm start
 ````
-you should be able to see the basic react page at http://localhost:3000
+you should be able to see the basic react page at [http://localhost:3000](http://localhost:3000 )
+
 
  
 
 
-3, Building the Backend
+# 3. Building the Backend
 Now we have our frontend working we need an api to talk to wit.ai api. For that we are going to use simple node.js api.
 Project setup
 `
@@ -93,11 +101,11 @@ DELETE /api/ workout/{workoutId }
 GET /api/calorieCount
 ```
 
-4, Integration with wit.ai
+# 4. Integration with wit.ai
 
 
 
-5, Deployment
+# 5. Deployment
 
 
 Deployment to heroku and netlify
