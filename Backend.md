@@ -34,6 +34,7 @@ license: (ISC) MIT
 
 Install Middleware
 
+
 ### Express
 Express is a minimalistic HTTP server.
 
@@ -49,8 +50,78 @@ npm install --save body-parser
 npm install --save cors
 ```
 
+Setup Express 
+
+server.js
+```
+var express = require("express")
+var app = express()
+
+var HTTP_PORT = 3000 
+app.listen(HTTP_PORT, () => {
+  console.log("Server running on port %PORT%".replace("%PORT%", HTTP_PORT));
+});
+
+// Root endpoint
+app.get("/", (req, res, next) => {
+  res.json({"message":"OK"});
+});
+
+// Default response for any other request
+app.use(function(req, res){
+  res.status(404);
+});
+```
+
+Database
+
 ```bash
 npm install sqlite3
+```
+
+database.js
+```
+var sqlite3 = require('sqlite3').verbose()
+const DBSOURCE = "healthyme-db"
+let db = new sqlite3.Database(DBSOURCE, (err) => {
+  if (err) {
+    // Cannot open database
+    console.error(err.message)
+    throw err
+  }else{
+    console.log('Connected to the SQLite database.')
+    db.run(`CREATE TABLE food_entry (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT, 
+        calories INTEGER,
+        created_by TEXT,
+        created_at TEXT
+        )`,
+    (err) => {
+        if (err) {
+          // Table already created
+        } else{
+          // We can have some seed data here.  
+        }
+    });
+    db.run(`CREATE TABLE workout (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT, 
+        calories INTEGER,
+        created_by TEXT,
+        created_at TEXT
+        )`,
+    (err) => {
+        if (err) {
+          // Table already created
+        } else{
+          // We can have some seed data here.  
+        }
+    });  
+  }
+});
+
+module.exports = db
 ```
 
 ### REST Endpoints 
@@ -68,3 +139,7 @@ GET /api/workout/{workoutId}
 DELETE /api/workout/{workoutId}  
 
 GET /api/calorieCount  
+
+
+
+
