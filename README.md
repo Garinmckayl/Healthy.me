@@ -34,7 +34,7 @@ Here is the app working in action
 
 Application Logic flow figure(mind map)
  
- ![Application Logic](image.jpg)
+ ![Application Logic](images/flow.png)
 
  
 
