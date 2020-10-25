@@ -1,5 +1,6 @@
 var express = require("express")
 var app = express()
+db = require('./db.js')
 
 var HTTP_PORT = 3000 
 app.listen(HTTP_PORT, () => {
