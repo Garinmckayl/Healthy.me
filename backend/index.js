@@ -1,6 +1,10 @@
 var express = require("express")
 var app = express()
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 db = require('./db.js')
+
 
 var HTTP_PORT = 3000 
 app.listen(HTTP_PORT, () => {
@@ -14,7 +18,32 @@ app.get("/", (req, res, next) => {
 
 // FoodEntry Endpoints
 app.post("/api/foodEntry", (req, res, next) => {
-    res.status(201).send()
+    var errors=[]
+    if (!req.body.name){
+        errors.push("No name specified");
+    }
+    if (!req.body.calories){
+        errors.push("No calories specified");
+    }
+    if (!req.body.entry_date_time){
+        errors.push("No entry_date_time specified");
+    }
+    if (errors.length){
+        res.status(400).json({"error":errors.join(",")});
+        return;
+    }
+    db.run(
+        `INSERT INTO food_entry (name, calories, entry_date_time, created_by, created_at) VALUES (?,?,?,?,?)`,
+        [req.body.name, req.body.calories, req.body.entry_date_time, 'user', new Date().toISOString()],
+        function (err, result) {
+        if (err) {
+            res.status(400).json({ "error": err.message })
+            return;
+        }
+        res.status(201).json({
+            "id": this.lastID
+        })
+    });
 });
 app.get("/api/foodEntry", (req, res, next) => {
     db.all("select * from food_entry", [], (err, rows) => {
