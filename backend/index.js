@@ -94,7 +94,16 @@ app.put("/api/foodEntry/:id", (req, res, next) => {
     );
 });
 app.delete("/api/foodEntry/:id", (req, res, next) => {
-    res.status(204).send()
+    db.run(`delete from food_entry WHERE id = ?`,
+        req.params.id,
+        function (err, result) {
+            if (err) {
+                res.status(400).json({ "error": res.message })
+                return;
+            }
+            res.status(204).send()
+        }
+    );
 });
 
 
