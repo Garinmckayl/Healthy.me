@@ -55,7 +55,17 @@ app.get("/api/foodEntry", (req, res, next) => {
       });
 });
 app.get("/api/foodEntry/:id", (req, res, next) => {
-    res.status(200).send({})
+    var params = [req.params.id]
+    db.get(`select * from food_entry where id = ?`, 
+        [req.params.id], 
+        (err, row) => {
+            if (err) {
+                res.status(400).json({"error": err.message});
+                return;
+            }
+            res.status(200).json(row);
+        }
+    );
 });
 app.put("/api/foodEntry/:id", (req, res, next) => {
     res.status(204).send({})
