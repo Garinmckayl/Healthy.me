@@ -106,6 +106,35 @@ app.delete("/api/foodEntry/:id", (req, res, next) => {
     );
 });
 
+// Workout Endpoints
+app.post("/api/workout", (req, res, next) => {
+    var errors=[]
+    if (!req.body.name){
+        errors.push("No name specified");
+    }
+    if (!req.body.calories){
+        errors.push("No calories specified");
+    }
+    if (!req.body.entry_date_time){
+        errors.push("No entry_date_time specified");
+    }
+    if (errors.length){
+        res.status(400).json({"error":errors.join(",")});
+        return;
+    }
+    db.run(
+        `INSERT INTO workout (name, calories, entry_date_time, created_by, created_at) VALUES (?,?,?,?,?)`,
+        [req.body.name, req.body.calories, req.body.entry_date_time, 'user', new Date().toISOString()],
+        function (err, result) {
+        if (err) {
+            res.status(400).json({ "error": err.message })
+            return;
+        }
+        res.status(201).json({
+            "id": this.lastID
+        })
+    });
+});
 
 app.use(function(req, res) {
     res.status(404).send('Page not Found');
