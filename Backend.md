@@ -58,7 +58,7 @@ npm install --save cors
 
 Link to the commit that sets up a simple HTTP server using express.
 
-[index.js](https://github.com/Garinmckayl/Healthy.me/commit/0fb59d51ef3aa4ca9e617310c5dc5add418450e3)
+- [index.js](https://github.com/Garinmckayl/Healthy.me/commit/0fb59d51ef3aa4ca9e617310c5dc5add418450e3)
 
 ###Database
 
@@ -68,8 +68,8 @@ npm install sqlite3
 
 Link to the commits that sets tables up in code - 
 
-[Set up food entry table](https://github.com/Garinmckayl/Healthy.me/commit/c1a4f47ba780b7b3abbb7aa88e1c9b8bb70434c8)
-[Set up workout table](https://github.com/Garinmckayl/Healthy.me/commit/37d0bde4d189a6f9ec6e0b21608ff71e0ead132c)
+- [Set up food entry table](https://github.com/Garinmckayl/Healthy.me/commit/c1a4f47ba780b7b3abbb7aa88e1c9b8bb70434c8)  
+- [Set up workout table](https://github.com/Garinmckayl/Healthy.me/commit/37d0bde4d189a6f9ec6e0b21608ff71e0ead132c)
 
 ### Specifying the API
 The very first thing that has to be defined for any web API is the operations it will expose.   
