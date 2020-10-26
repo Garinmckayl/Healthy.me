@@ -144,6 +144,19 @@ app.get("/api/workout", (req, res, next) => {
         res.status(200).json(rows);
       });
 });
+app.get("/api/workout/:id", (req, res, next) => {
+    var params = [req.params.id]
+    db.get(`select * from workout where id = ?`, 
+        [req.params.id], 
+        (err, row) => {
+            if (err) {
+                res.status(400).json({"error": err.message});
+                return;
+            }
+            res.status(200).json(row);
+        }
+    );
+});
 
 app.use(function(req, res) {
     res.status(404).send('Page not Found');
