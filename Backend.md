@@ -56,7 +56,7 @@ npm install --save body-parser
 npm install --save cors
 ```
 
-Setup Express 
+Link to the commit that sets up a simple HTTP server using express.
 
 [index.js](https://github.com/Garinmckayl/Healthy.me/commit/0fb59d51ef3aa4ca9e617310c5dc5add418450e3)
 
@@ -66,31 +66,30 @@ Setup Express
 npm install sqlite3
 ```
 
-[db.js](https://github.com/Garinmckayl/Healthy.me/commit/c1a4f47ba780b7b3abbb7aa88e1c9b8bb70434c8)
+Link to the commits that sets tables up in code - 
 
+[Set up food entry table](https://github.com/Garinmckayl/Healthy.me/commit/c1a4f47ba780b7b3abbb7aa88e1c9b8bb70434c8)
+[Set up workout table](https://github.com/Garinmckayl/Healthy.me/commit/37d0bde4d189a6f9ec6e0b21608ff71e0ead132c)
 
 ### Specifying the API
 The very first thing that has to be defined for any web API is the operations it will expose.   
-According to the REST principles, an operation is exposed by an HTTP method and an URI. 
-The action performed by each operation should not contradict to the natural meaning of its HTTP method. 
+According to the REST principles, an operation is exposed by an HTTP method and an URI.  
+The action performed by each operation should not contradict to the natural meaning of its HTTP method.  
 The following table specifies the operations of our API in detail -
 
 ### REST Endpoints 
 
-POST /api/foodEntry  
-PUT /api/foodEntry/{foodEntryId}  
-GET /api/foodEntry  
-GET /api/foodEntry/{foodEntryId}  
-DELETE /api/foodEntry/{foodEntryId}  
-
-POST /api/workout  
-PUT /api/workout/{workoutId}  
-GET /api/workout  
-GET /api/workout/{workoutId}  
-DELETE /api/workout/{workoutId}  
-
-GET /api/calorieCount  
-
-
+| HTTP Method   |  URL                           | Purpose                            | Commit           |
+|---------------|--------------------------------|------------------------------------|------------------|
+| POST          | /api/foodEntry                 | Registers a new food entry         |[Register a new food entry](https://github.com/Garinmckayl/Healthy.me/commit/16ea56ee5647bc4b68ddd0717d64ebfa84bb59e4)|
+| GET           | /api/foodEntry                 | Gets a list of all food entries    |[Get all food entries](https://github.com/Garinmckayl/Healthy.me/commit/adefece3c332708e072cd5120e43c24d01abcf99)|
+| GET           | /api/foodEntry/{foodEntryId}   | Gets a food entry by ID            |[Get a food entry by ID](https://github.com/Garinmckayl/Healthy.me/commit/2cd531008dec008ad97497828f249973cdd2e759)|
+| PUT           | /api/foodEntry/{foodEntryId}   | Updates a food entry               |[Update a food entry](https://github.com/Garinmckayl/Healthy.me/commit/7b889100d063bb84bcf52143c846dc0dda9bbde9)|
+| DELETE        | /api/foodEntry/{foodEntryId}   | Deletes a food entry               |[Delete a food entry](https://github.com/Garinmckayl/Healthy.me/commit/935888bc18b59364a648a96e05848a07b1085606)|
+| POST          | /api/workout                   | Registers a new workout            |[Register a new workout](https://github.com/Garinmckayl/Healthy.me/commit/cafe4456b3380d6e0d58330e86b64a3642494d7b)|
+| GET           | /api/workout                   | Gets a list of all workouts        |[Get all workouts](https://github.com/Garinmckayl/Healthy.me/commit/f520a5b4452583b184bcc3376e016f21df5a65fd)|
+| GET           | /api/workout/{workoutId}       | Get a workout by ID                |[Get a workout by ID](https://github.com/Garinmckayl/Healthy.me/commit/6caa35328dc38d441bd69da8307c416b458270ac)|
+| PUT           | /api/workout/{workoutId}       | Updates a workout                  |[Update a workout](https://github.com/Garinmckayl/Healthy.me/commit/c4cbfc0c87ebf0e4bae6d2a10cc70454651a5da6)|
+| DELETE        | /api/workout/{workoutId}       | Deletes a workout                  |[Delete a workout](https://github.com/Garinmckayl/Healthy.me/commit/24d643faaf2da7e1986db49208eaf661c98e893c)|
 
 
