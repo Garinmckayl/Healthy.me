@@ -157,6 +157,32 @@ app.get("/api/workout/:id", (req, res, next) => {
         }
     );
 });
+app.put("/api/workout/:id", (req, res, next) => {
+    var errors=[]
+    if (!req.body.name){
+        errors.push("No name specified");
+    }
+    if (!req.body.calories){
+        errors.push("No calories specified");
+    }
+    if (!req.body.entry_date_time){
+        errors.push("No entry_date_time specified");
+    }
+    if (errors.length){
+        res.status(400).json({"error":errors.join(",")});
+        return;
+    }
+    db.run(`update workout set name = ?, calories = ?, entry_date_time = ? WHERE id = ?`,
+        [req.body.name, req.body.calories, req.body.entry_date_time, req.params.id],
+        function (err, result) {
+            if (err) {
+                res.status(400).json({ "error": res.message })
+                return;
+            }
+            res.status(204).send();
+        }
+    );
+});
 
 app.use(function(req, res) {
     res.status(404).send('Page not Found');
