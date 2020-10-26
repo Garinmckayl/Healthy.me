@@ -183,6 +183,18 @@ app.put("/api/workout/:id", (req, res, next) => {
         }
     );
 });
+app.delete("/api/workout/:id", (req, res, next) => {
+    db.run(`delete from workout WHERE id = ?`,
+        req.params.id,
+        function (err, result) {
+            if (err) {
+                res.status(400).json({ "error": res.message })
+                return;
+            }
+            res.status(204).send()
+        }
+    );
+});
 
 app.use(function(req, res) {
     res.status(404).send('Page not Found');
