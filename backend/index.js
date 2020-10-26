@@ -135,6 +135,15 @@ app.post("/api/workout", (req, res, next) => {
         })
     });
 });
+app.get("/api/workout", (req, res, next) => {
+    db.all("select * from workout", [], (err, rows) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.status(200).json(rows);
+      });
+});
 
 app.use(function(req, res) {
     res.status(404).send('Page not Found');
